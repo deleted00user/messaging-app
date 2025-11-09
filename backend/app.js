@@ -10,13 +10,8 @@ app.use(cors());
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
-
-app.get('/api/test-auth', authenticateToken, (req, res) => {
-    res.json({ 
-        message: 'You are authenticated!', 
-        userId: req.user.userId 
-    });
-});
+const userRoutes = require('./routes/userRoutes');
+app.use('/api/users', userRoutes);
 
 app.listen(port, () => {
     console.log(`Running on http://localhost:${port}`)
