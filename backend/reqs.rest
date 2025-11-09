@@ -57,3 +57,14 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhd
 
 GET http://localhost:3000/api/users/search
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc2MjYzODQ4OCwiZXhwIjoxNzYzMjQzMjg4fQ.mXB9gFL9pHG8BgtnCPZ7bjHY7UiDyDxf4sG6DUZiTA8
+
+###
+
+POST http://localhost:3000/api/messages
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc2MjYzODQ4OCwiZXhwIjoxNzYzMjQzMjg4fQ.mXB9gFL9pHG8BgtnCPZ7bjHY7UiDyDxf4sG6DUZiTA8
+Content-Type: application/json
+
+{
+    "receiver_id": 1,
+    "content": "Hey testuser! This is my first message!"
+}
