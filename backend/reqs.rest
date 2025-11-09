@@ -2,8 +2,8 @@ POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
-    "username": "testuser",
-    "email": "test@example.com",
+    "username": "nikita",
+    "email": "nikita@example.com",
     "password": "password123"
 }
 
@@ -13,7 +13,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "username": "testuser",
+    "username": "nikita",
     "password": "password123"
 }
 
@@ -23,6 +23,11 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-    "email": "test@example.com",
+    "email": "nikita@example.com",
     "password": "password123"
 }
+
+###
+
+GET http://localhost:3000/api/test-auth
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjIsImlhdCI6MTc2MjYzODQ4OCwiZXhwIjoxNzYzMjQzMjg4fQ.mXB9gFL9pHG8BgtnCPZ7bjHY7UiDyDxf4sG6DUZiTA8
