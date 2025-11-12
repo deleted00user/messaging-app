@@ -8,14 +8,12 @@
 </head>
 <body>
     
-    <!-- Auth Section -->
     <div id="auth-container">
         <div id="auth-tabs">
             <button id="show-login" class="active">Login</button>
             <button id="show-register">Register</button>
         </div>
 
-        <!-- Login Form -->
         <form id="login-form">
             <h2>Login</h2>
             <div>
@@ -30,7 +28,6 @@
             <p id="login-error" class="error"></p>
         </form>
 
-        <!-- Register Form -->
         <form id="register-form" style="display: none;">
             <h2>Register</h2>
             <div>
@@ -51,31 +48,38 @@
     </div>
 
     
-    <!-- Main App -->
     <div id="app-container" style="display: none;">
         
-        <!-- Sidebar: List of conversations -->
         <aside id="sidebar">
             <div id="sidebar-header">
                 <h2>Messages</h2>
                 <button id="theme-toggle">🌙</button>
-                <button id="logout-btn">Logout</button>
             </div>
-            <div id="user-search">
-                <input type="text" id="search-input" placeholder="Search users...">
-            </div>
-            <div id="conversations-list">
-                <!-- Conversations will be loaded here -->
-            </div>
+        <div id="user-search">
+            <input type="text" id="search-input" placeholder="Search users...">
+        </div>
+        <div id="conversations-list">
+        </div>
+        <div id="sidebar-footer">
+            <button id="profile-btn">
+                <span>👤</span>
+                <span>Profile</span>
+            </button>
+            <button id="logout-btn">
+                <span>🚪</span>
+                <span>Logout</span>
+            </button>
+        </div>
         </aside>
 
-        <!-- Chat Area -->
+        
         <main id="chat-area">
             <div id="chat-header">
+                <button id="mobile-back-btn">← Back</button>
                 <h3 id="chat-username">Select a conversation</h3>
             </div>
             <div id="messages-container">
-                <!-- Messages will be loaded here -->
+                <button id="scroll-to-bottom">↓</button>
             </div>
             <div id="message-input-container">
                 <input type="text" id="message-input" placeholder="Type a message...">
@@ -84,6 +88,85 @@
         </main>
 
     </div>
+
+    <div id="profile-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>My Profile</h2>
+                <button class="modal-close" id="close-profile-modal">×</button>
+            </div>
+            
+            <div class="profile-avatar" id="profile-avatar">?</div>
+            
+            <div id="profile-view" class="profile-info">
+                <div class="profile-info-item">
+                    <label>Username</label>
+                    <div class="value" id="view-username">-</div>
+                </div>
+                <div class="profile-info-item">
+                    <label>Email</label>
+                    <div class="value" id="view-email">-</div>
+                </div>
+                <div class="profile-info-item">
+                    <label>Display Name</label>
+                    <div class="value" id="view-display-name">Not set</div>
+                </div>
+                <div class="profile-info-item">
+                    <label>Bio</label>
+                    <div class="value" id="view-bio">Not set</div>
+                </div>
+            </div>
+            
+            <form id="profile-edit-form" class="profile-form">
+                <div class="form-group">
+                    <label for="edit-display-name">Display Name</label>
+                    <input type="text" id="edit-display-name" placeholder="Your display name">
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio">Bio</label>
+                    <textarea id="edit-bio" placeholder="Tell us about yourself..."></textarea>
+                </div>
+            </form>
+            
+            <div class="modal-actions">
+                <button id="edit-profile-btn" class="btn-primary">Edit Profile</button>
+                <button id="save-profile-btn" class="btn-primary" style="display: none;">Save Changes</button>
+                <button id="cancel-edit-btn" class="btn-secondary" style="display: none;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="user-profile-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>User Profile</h2>
+                <button class="modal-close" id="close-user-profile-modal">×</button>
+            </div>
+            
+            <div class="profile-avatar" id="user-profile-avatar">?</div>
+            
+            <div class="profile-info">
+                <div class="profile-info-item">
+                    <label>Username</label>
+                    <div class="value" id="user-view-username">-</div>
+                </div>
+                <div class="profile-info-item">
+                    <label>Display Name</label>
+                    <div class="value" id="user-view-display-name">Not set</div>
+                </div>
+                <div class="profile-info-item">
+                    <label>Bio</label>
+                    <div class="value" id="user-view-bio">Not set</div>
+                </div>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="close-user-profile-btn" class="btn-secondary">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast-container"></div>
 
     <script src="js/api.js"></script>
     <script src="js/auth.js"></script>

@@ -26,9 +26,12 @@ document.getElementById('login-form').addEventListener('submit', async (e) => {
         document.getElementById('auth-container').style.display = 'none';
         document.getElementById('app-container').style.display = 'grid';
         
+        showToast('Login successful!', 'success');
+        
         initApp();
     } catch (error) {
         errorEl.textContent = error.message;
+        showToast(error.message, 'error');
     }
 });
 
@@ -47,16 +50,25 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         document.getElementById('auth-container').style.display = 'none';
         document.getElementById('app-container').style.display = 'grid';
         
+        showToast('Registration successful!', 'success');
+        
         initApp();
     } catch (error) {
         errorEl.textContent = error.message;
+        showToast(error.message, 'error');
     }
 });
 
 document.getElementById('logout-btn').addEventListener('click', () => {
+    if (window.messagePollingInterval) {
+        clearInterval(window.messagePollingInterval);
+    }
+    
     removeToken();
     document.getElementById('auth-container').style.display = 'flex';
     document.getElementById('app-container').style.display = 'none';
+    
+    showToast('Logged out successfully', 'info');
 });
 
 window.addEventListener('DOMContentLoaded', () => {
