@@ -6,7 +6,10 @@ const port = process.env.PORT || 3000;
 const authenticateToken = require('./middleware/authMiddleware');
 
 app.use(express.json())
-app.use(cors());
+app.use(cors({
+    origin: '*', 
+    credentials: true
+}));
 
 const authRoutes = require('./routes/authRoutes');
 app.use('/api/auth', authRoutes);
